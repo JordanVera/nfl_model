@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Nfl_team from '../models/teamModel.js';
-import Offensive_stats from '../models/offensiveStatsModel.js'
+import Offensive_stats from '../models/offensiveStatsModel.js';
 import Defensive_stats from '../models/defensiveStatsModel.js';
 import Game_stats from '../models/gameStatsModel.js';
 import colors from 'colors';
@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const teams = {};
+let sorted_teams_array = [];
 
 
 axios.all([
@@ -287,28 +288,32 @@ axios.all([
       teams[element.Team]['game_stats'].push(game_stats);
       teams[element.Team]['victory_margin_arr'].push(margin_of_victory);
 
-    });
+    }); 
 
-    /* Executable logic
+    
+
+    /* power rating algorithm logic
     _____________________________________________ */
+    
+
+    
+
     const teams_array = Object.entries(teams);
-    console.log(teams_array);
-    // console.log(`Average Victory Margin = ${teams.average_victory_margin}`);
-    // console.log(off_stats_arr);
+
+    sorted_teams_array = teams_array.sort((a, b) => {
+      if (a[1].average_victory_margin > b[1].average_victory_margin) return -1;
+      if (a[1].average_victory_margin < b[1].average_victory_margin) return 1;
+      return 0;
+    })
+
+    console.log(sorted_teams_array);
 
     teams_array.forEach(element => {
       console.log(`average victory margin for ${element[0]} = ${element[1].average_victory_margin}`)
     });
 
-      // teams_array.sort((a, b) => {
-      //   const sorted_teams_array = []
-      //   if (a.Team > b.Team) {
-      //     sorted_teams_array.push(a)
-      //   }
-
-      //   console.log(sorted_teams_array)
-      // })
-
+    
+  
 
   })
   .catch(function (error) {

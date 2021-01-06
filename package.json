@@ -11,13 +11,15 @@
     "get_teams": "node --experimental-modules ../nflSIMULATION/teams/get_teams.js",
     "get_offensive_stats": "node --experimental-modules ../nflSIMULATION/teams/get_offensive_stats.js",
     "get_defensive_stats": "node --experimental-modules ../nflSIMULATION/teams/get_defensive_stats.js",
-    "get_victory_margin": "node --experimental-modules ../nflSIMULATION/teams/get_victory_margin.js"
+    "get_victory_margin": "node --experimental-modules ../nflSIMULATION/teams/get_victory_margin.js",
+    "power_rank": "node --experimental-modules ../nflSIMULATION/teams/power_rank.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
     "cfb-data": "^4.0.0",
+    "cheerio": "^1.0.0-rc.5",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
