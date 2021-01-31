@@ -5,10 +5,12 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --experimental-modules app.js",
     "afc_west": "node --experimental-modules ../nflSIMULATION/teams/afc_west.js",
     "get_teams": "node --experimental-modules ../nflSIMULATION/teams/get_teams.js",
+    "tester": "node --experimental-modules ../nflSIMULATION/teams/tester.js",
     "get_offensive_stats": "node --experimental-modules ../nflSIMULATION/teams/get_offensive_stats.js",
     "get_defensive_stats": "node --experimental-modules ../nflSIMULATION/teams/get_defensive_stats.js",
     "get_victory_margin": "node --experimental-modules ../nflSIMULATION/teams/get_victory_margin.js",
@@ -18,15 +20,20 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
-    "cfb-data": "^4.0.0",
     "cheerio": "^1.0.0-rc.5",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
     "nodemon": "^2.0.6",
     "stats-lite": "^2.2.0",
     "terminal-kit": "^1.44.0",
     "tofixed": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
   }
 }

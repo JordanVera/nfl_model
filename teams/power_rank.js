@@ -9,7 +9,7 @@ dotenv.config();
 axios.get('https://thepowerrank.com/nfl/').then(response => {
   const $ = cheerio.load(response.data);
 
-  console.log($('.chartmain > #chart > svg').html());
+  console.log($('.kansas_city').text());
     // $('.team').each((i, element) => {
     //   console.log(element);
     // })
